@@ -35,7 +35,7 @@ class Login extends Component {
           >
             <input
               className="form-item"
-              placeholder="email goes here..."
+              placeholder="email"
               name="email"
               type="text"
               onChange={this.handleChange.bind(this)}
@@ -43,7 +43,7 @@ class Login extends Component {
             />
             <input
               className="form-item"
-              placeholder="Password goes here..."
+              placeholder="password"
               name="password"
               type="password"
               onChange={this.handleChange.bind(this)}
