@@ -4,19 +4,23 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      user: null,
+    }
+  }
 
 
 
-
-handleNewUser(user) {
-  console.log(user)
-}
+  handleNewUser(user) {
+    console.log(user)
+  }
 
 
   render() {
     return (
       <div className="App">
-        <center><h1>Table Tonight!</h1></center>
           <Router>
             <Switch>
               <Route exact path="/register" component={Register}/>
