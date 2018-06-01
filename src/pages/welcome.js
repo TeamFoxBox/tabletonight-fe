@@ -6,7 +6,7 @@ class Welcome extends Component {
     return (
       <div>
         {/* Hello world */}
-        <div className="awesome" style={{border: '1px solid red'}}></div>
+        <div className="awesome" style={{border: '1px solid black'}}></div>
         <h1>Welcome to Table Tonight!</h1>
         <p>Restaurants</p>
 

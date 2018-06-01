@@ -1,0 +1,25 @@
+
+.about-card {
+    border: 1px solid #ffffff;
+    max-width: 450px;
+
+    margin: 0 auto 30px auto;
+}
+
+.about-image img {
+    max-width: 100%;
+}
+
+section {
+    width: 100%;
+}
+
+.about-title {
+    width: 100%;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-transform: inherit;
+    letter-spacing: 3px;
+}
