@@ -32,7 +32,7 @@ class Register extends Component {
 
   render(){
     return(
-      <div className="center">
+      <div className="center1">
         <h1>REGISTER</h1>
         To start making reservations, please register below.<br/>
         <Grid>
