@@ -3,11 +3,12 @@ import { Grid, Col, Row, FormControl, Form } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import '../css/register.css'
 import { createUser } from '../api'
-
+import AuthService from '../services/AuthService';
 
 class Register extends Component {
   constructor(props) {
     super(props)
+    this.Auth = new AuthService()
     this.state = {
       user: {
         name: "",
@@ -25,9 +26,10 @@ class Register extends Component {
   }
   handleSubmit(event){
     event.preventDefault()
-    createUser(this.state.user).then (successUser => {
+      this.Auth.register(this.state.user).then (successUser => {
       console.log("Create Success!", successUser); this.setState({createSuccess: true})
     })
+    .catch(err =>{ alert(err) })
   }
 
   render(){
@@ -52,9 +54,15 @@ class Register extends Component {
                   onChange={this.handleChange.bind(this)}
                 />
                 <FormControl
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="Password"
+                  onChange={this.handleChange.bind(this)}
+                />
+                <FormControl
+                  type="password"
+                  name="password_confirmation"
+                  placeholder="Password Confirmation"
                   onChange={this.handleChange.bind(this)}
                 /><br/>
                 <FormControl
@@ -64,7 +72,7 @@ class Register extends Component {
                 />
               </Col>
             </Form>
-            {this.state.createSuccess && <Redirect to="/login"/> }
+            {this.state.createSuccess && <Redirect to="/"/> }
           </Row>
         </Grid>
         Already have an account? Log in <a href="/login">here</a>.
