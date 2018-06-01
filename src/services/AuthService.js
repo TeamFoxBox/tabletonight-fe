@@ -30,6 +30,24 @@ export default class AuthService {
 		})
 	}
 
+// Register
+	register(user) {
+		// Our backend endpoint
+		console.log(user);
+		return this.fetch(`${this.domain}/users`, {
+			method: 'POST',
+			body: JSON.stringify({
+			// We pass in email and password from the login form
+				user: user
+			})
+		}).then(res => {
+			console.log("Response from authService.register:", res);
+			// this.setToken(res.jwt)
+			return Promise.resolve(res);
+		})
+	}
+
+
 	// Check to see if user is logged in
 	loggedIn() {
 		const token = this.getToken()

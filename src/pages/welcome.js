@@ -35,7 +35,7 @@ class Welcome extends Component {
                 </div>
 
                 <div>
-                 <button onclick="myFunction()">Make Reservation here!</button>
+                 <button onClick="myFunction()">Make Reservation here!</button>
                 </div>
 
             </div>
