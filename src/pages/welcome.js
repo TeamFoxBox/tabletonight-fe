@@ -8,7 +8,7 @@ class Welcome extends Component {
         {/* Hello world */}
         <div className="awesome" style={{border: '1px solid red'}}></div>
         <h1>Welcome to Table Tonight!</h1>
-        <p>Resturants</p>
+        <p>Restaurants</p>
 
         <section>
             <div className="restaurant-card">
@@ -17,7 +17,7 @@ class Welcome extends Component {
                 </div>
 
                 <div className="card-title">
-                    <h3>Resturant 1</h3>
+                    <h3>Restaurants 1</h3>
                     <p>Italian</p>
                 </div>
 
@@ -30,7 +30,7 @@ class Welcome extends Component {
                 </div>
 
                 <div className="card-title">
-                    <h3>Resturant 2</h3>
+                    <h3>Restaurants 2</h3>
                     <p>Sushi</p>
                 </div>
 
