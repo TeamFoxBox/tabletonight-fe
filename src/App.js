@@ -5,6 +5,9 @@ import './css/App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Login from './pages/login';
 
+
+import About from './pages/about'
+
 class App extends Component {
   render() {
     return (
@@ -15,6 +18,7 @@ class App extends Component {
 					<Switch>
 						<Route exact path="/login" component={Login} />
                         <Route exact path="/" component={Welcome} />
+                        <Route exact path="/about" component={About} />
 			  		</Switch>
 				</Router>
       </div>
