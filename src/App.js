@@ -5,6 +5,8 @@ import './css/App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Login from './pages/login';
 import Register from './pages/register'
+import withAuth from './withAuth'
+import AuthService from '../services/AuthService'  // <- We use the AuthService to logout
 
 
 import About from './pages/about'
