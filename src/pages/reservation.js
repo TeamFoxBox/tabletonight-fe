@@ -33,7 +33,7 @@ class Reservation extends Component {
 
   render(){
     return(
-      <div className="center1">
+      <div className="center2">
         <h1>Reservation</h1>
         Please Make a Reservation here.<br/>
         <Grid>
@@ -63,6 +63,7 @@ class Reservation extends Component {
                   name="submit"
                   onClick={this.handleSubmit.bind(this)}
                 />
+                <img src="/assets/images/reserve.jpg" />
               </Col>
             </Form>
             {this.state.createSuccess && <Redirect to="/confirmation"/> }
