@@ -1,4 +1,21 @@
-.center{
+.reg_page{
+    display:flex;
+}
+
+.res_form{
+    flex: 1 1 50%;
+    justify-content: center;
+}
+
+.res_info{
+    flex: 1 1 50%;
+}
+
+#waiter_pic{
+    width: 75%;
+}
+
+/* .center{
   position: absolute;
   height: 100%;
   width: 100%;
@@ -33,4 +50,4 @@
   border: none;
   transition: 0.3s opacity ease;
   cursor: pointer;
-}
+} */

@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom'
 import '../css/reservation.css'
 import { createUser } from '../api'
 import AuthService from '../services/AuthService';
+import TimePicker from 'react-bootstrap-time-picker';
 
 class Reservation extends Component {
   constructor(props) {
@@ -11,9 +12,9 @@ class Reservation extends Component {
     this.Auth = new AuthService()
     this.state = {
       user: {
-        time: "",
-        party_number: "",
         date: "",
+        time: 0,
+        party_number: 0,
       },
       createSuccess: false,
     }
@@ -22,6 +23,7 @@ class Reservation extends Component {
     let { user } = this.state
     user[event.target.name] = event.target.value
     this.setState({user: user})
+    console.log(this.state)
   }
   handleSubmit(event){
     event.preventDefault()
@@ -30,47 +32,51 @@ class Reservation extends Component {
     })
     .catch(err =>{ alert(err) })
   }
+  handleTimeChange(appt){
+      this.setState({time: appt})
+  }
 
   render(){
     return(
-      <div className="center2">
-        <h1>Reservation</h1>
-        Please Make a Reservation here.<br/>
-        <Grid>
-          <Row>
-            <Form>
-              <Col className="new-user">
-                <FormControl
-                  type="integer"
-                  date="date"
-                  placeholder="Date"
-                  onChange={this.handleChange.bind(this)}
-                /><br/>
-                <FormControl
-                  type="integer"
-                  time="time"
-                  placeholder="Time"
-                  onChange={this.handleChange.bind(this)}
-                /><br/>
-                <FormControl
-                  type="integer"
-                  partynumber="integer"
-                  placeholder="Party Number"
-                  onChange={this.handleChange.bind(this)}
-              /><br/>
-                <FormControl
-                  type="submit"
-                  name="submit"
-                  onClick={this.handleSubmit.bind(this)}
-                />
-                <img src="/assets/images/reserve.jpg" />
-              </Col>
-            </Form>
-            {this.state.createSuccess && <Redirect to="/confirmation"/> }
-          </Row>
-        </Grid>
-         Log out <a href="/login">here</a>.
-      </div>
+        <div className="reg_page">
+            <div className="res_form">
+              <h1>Reservation</h1>
+              Please Make a Reservation here.<br/>
+              <Grid>
+                <Row>
+                  <Form>
+                    <Col className="new-user">
+                      <FormControl
+                        type= "date"
+                        placeholder="Date"
+                        onChange={this.handleChange.bind(this)}
+                      /><br/>
+                      <TimePicker
+                        type="select"
+                        start="11:00" end="20:00" step={30}
+                        onChange={this.handleTimeChange.bind(this)} value={this.state.time}
+                      /><br/>
+                      <FormControl
+                        type="integer"
+                        placeholder="Party Size"
+                        onChange={this.handleChange.bind(this)}
+                    /><br/>
+                      <FormControl
+                        type="submit"
+                        name="submit"
+                        onClick={this.handleSubmit.bind(this)}
+                      />
+                    </Col>
+                  </Form>
+                  {this.state.createSuccess && <Redirect to="/confirmation"/> }
+                </Row>
+              </Grid>
+            </div>
+            <div className="res_info">
+                <img id="waiter_pic" src="/assets/images/reserve.jpg" />
+            </div>
+        </div>
+
     )
   }
 
