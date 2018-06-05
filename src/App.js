@@ -29,7 +29,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Table Tonight!</h1>
 				<Router>
 					<Switch>
 						<Route exact path="/login" component={Login} />
