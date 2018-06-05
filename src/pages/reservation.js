@@ -57,8 +57,8 @@ class Reservation extends Component {
                         onChange={this.handleTimeChange.bind(this)} value={this.state.time}
                       /><br/>
                       <FormControl
-                        type="integer"
-                        placeholder="Party Size"
+                        type="Number"
+                        placeholder="Party Number"
                         onChange={this.handleChange.bind(this)}
                     /><br/>
                       <FormControl
