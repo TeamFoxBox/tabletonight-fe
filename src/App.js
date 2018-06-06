@@ -7,8 +7,8 @@ import Login from './pages/login';
 import Register from './pages/register'
 import Reservation from './pages/reservation'
 import Table from './pages/table'
-// import withAuth from './withAuth'
-// import AuthService from '../services/AuthService'  // <- We use the AuthService to logout
+import withAuth from './pages/withAuth'
+import AuthService from './services/AuthService'  // <- We use the AuthService to logout
 
 
 import About from './pages/about'
