@@ -1,0 +1,18 @@
+.container-4 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.box-7 {
+    max-width: 70%;
+}
+.box-8 {
+    width: 30%;
+    height: 200px;
+    padding-top: 30px;
+}
+.table-image img {
+    height: 400px;
+    width: 400px;
+}
