@@ -5,9 +5,11 @@ import './css/App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Login from './pages/login';
 import Register from './pages/register'
+import Confirmation from './pages/confirmation'
 
 
 import About from './pages/about'
+import Contactus from './pages/contactus'
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +35,8 @@ class App extends Component {
             <Route exact path="/" component={Welcome} />
             <Route exact path="/about" component={About} />
             <Route exact path="/register" component={Register}/>
+            <Route exact path="/contactus" component={Contactus}/>
+            <Route exact path="/confirmation" component={Confirmation}/>
 			  		</Switch>
 				</Router>
       </div>

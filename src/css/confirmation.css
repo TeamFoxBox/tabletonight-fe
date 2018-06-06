@@ -1,0 +1,17 @@
+.card{
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 0.8rem;
+}
+
+.card > form{
+  display: flex;
+  flex-direction: column;
+}
+
+.card h1{
+  text-align: center;
+  color: black;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
