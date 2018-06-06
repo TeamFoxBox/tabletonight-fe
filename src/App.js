@@ -6,6 +6,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Login from './pages/login';
 import Register from './pages/register'
 import Reservation from './pages/reservation'
+import Table from './pages/table'
+// import withAuth from './withAuth'
+// import AuthService from '../services/AuthService'  // <- We use the AuthService to logout
+
 
 import About from './pages/about'
 
@@ -33,7 +37,10 @@ class App extends Component {
             <Route exact path="/" component={Welcome} />
             <Route exact path="/about" component={About} />
             <Route exact path="/register" component={Register}/>
+
             <Route exact path="/reservation" component={Reservation}/>
+            <Route exact path="/table" component={Table}/>
+
 			  		</Switch>
 				</Router>
       </div>
