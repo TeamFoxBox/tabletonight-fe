@@ -1,4 +1,5 @@
-const BASE = 'https://table-tonight-be.herokuapp.com/'
+// const BASE = 'https://table-tonight-be.herokuapp.com/'
+const BASE = 'http://localhost:3000/'
 
 let createUser = function(user) {
   let newUser = {user: user}
@@ -16,3 +17,21 @@ let createUser = function(user) {
 }
 
 export { createUser }
+
+
+let bookReservation = function(reservation) {
+  let newReservation = {reservation: reservation}
+  return fetch(BASE+'appointments', {
+    body: JSON.stringify(newReservation),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: "POST"
+  })
+  .then((rawResponse) => {
+    let parsedResponse = rawResponse.json()
+    return parsedResponse
+  })
+}
+
+export { bookReservation }

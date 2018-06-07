@@ -2,38 +2,43 @@ import React, { Component } from 'react'
 import { Grid, Col, Row, FormControl, Form } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import '../css/reservation.css'
-import { createUser } from '../api'
-import AuthService from '../services/AuthService';
+import { bookReservation } from '../api/'
 import TimePicker from 'react-bootstrap-time-picker';
+import AuthService from '../services/AuthService'
+import ReserveService from '../services/ReserveService'
+
 
 class Reservation extends Component {
   constructor(props) {
     super(props)
-    this.Auth = new AuthService()
+    this.Reserve = new ReserveService()
     this.state = {
-      user: {
+      reservation: {
         date: "",
-        time: 0,
-        party_number: 0,
+        time_start: 0,
+        // party_number: 0,
       },
-      createSuccess: false,
+      reserveSuccess: false,
     }
   }
   handleChange(event){
-    let { user } = this.state
-    user[event.target.name] = event.target.value
-    this.setState({user: user})
+    let { reservation } = this.state
+    reservation[event.target.name] = event.target.value
+    this.setState({reservation: reservation})
     console.log(this.state)
   }
   handleSubmit(event){
     event.preventDefault()
-      this.Auth.register(this.state.user).then (successUser => {
-      console.log("Create Success!", successUser); this.setState({createSuccess: true})
+    bookReservation(this.state.reservation).then (successReserve => {
+    console.log("Create Success!", successReserve); this.setState({reserveSuccess: true})
+
+      // this.Reserve.reserve(this.state.reservation).then (successReserve => {
+      // console.log("Create Success!", successReserve); this.setState({reserveSuccess: true})
     })
     .catch(err =>{ alert(err) })
   }
   handleTimeChange(appt){
-      this.setState({time: appt})
+      this.setState({time_start: appt})
   }
 
   render(){
@@ -54,7 +59,7 @@ class Reservation extends Component {
                       <TimePicker
                         type="select"
                         start="11:00" end="20:00" step={30}
-                        onChange={this.handleTimeChange.bind(this)} value={this.state.time}
+                        onChange={this.handleTimeChange.bind(this)} value={this.state.time_start}
                       /><br/>
                       <FormControl
                         type="Number"
@@ -68,7 +73,7 @@ class Reservation extends Component {
                       />
                     </Col>
                   </Form>
-                  {this.state.createSuccess && <Redirect to="/confirmation"/> }
+                  {this.state.reserveSuccess && <Redirect to="/table"/> }
                 </Row>
               </Grid>
             </div>
