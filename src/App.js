@@ -11,26 +11,62 @@ import Table from './pages/table'
 import withAuth from './pages/withAuth'
 import AuthService from './services/AuthService'  // <- We use the AuthService to logout
 
-import Newhome from "./pages/newhome" //sample new home w/API
 
+//API
+//sample new home w/API
+import RestaurantsContainer from './components/RestaurantsContainer'
 
 
 import About from './pages/about'
 import Contactus from './pages/contactus'
 
 class App extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
       user: null,
+      search: [],
+      spots: [],
+      rest: [],
+
     }
   }
 
-
+  componentDidMount() {
+    fetch("https://table-tonight-be.herokuapp.com/")
+      .then((res) => res.json())
+      .then((json) => {
+      })
+  }
 
   handleNewUser(user) {
     console.log(user)
   }
+
+//API Search Bar
+  handleSearch = (searchTerm) => {
+    const token = localStorage.getItem("jwtToken")
+    const body = JSON.stringify(searchTerm)
+    return fetch("https://table-tonight-be.herokuapp.com/", {
+        method: "POST",
+        headers: {
+        'Accept': 'application/json',
+  'Content-Type': 'application/json',
+  'Authorization': `${token}`
+       },
+       'body': body
+   })
+    .then(res => res.json())
+    .then(res => res = res.businesses.slice(0,8))
+    .then(res => this.setState({
+      search: res
+    }))
+  }
+
+
+
+
 
 
   render() {
@@ -46,7 +82,8 @@ class App extends Component {
             <Route exact path="/confirmation" component={Confirmation}/>
             <Route exact path="/reservation" component={Reservation}/>
             <Route exact path="/table" component={Table}/>
-            <Route exact path="/newhome" component={Newhome}/>
+
+            <Route path="/spots" render={(props) => <RestaurantsContainer user={this.state.user} spots={this.state.spots} {...props} searchResults={this.state.search} handleSearch={this.handleSearch}/>}/>
 
 
 			  		</Switch>
