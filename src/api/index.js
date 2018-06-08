@@ -19,9 +19,9 @@ let createUser = function(user) {
 export { createUser }
 
 
-let bookReservation = function(reservation) {
-  let newReservation = {reservation: reservation}
-  return fetch(BASE+'appointments', {
+let bookReservation = function(booking) {
+  let newReservation = {booking: booking}
+  return fetch(BASE+'bookings', {
     body: JSON.stringify(newReservation),
     headers: {
       'Content-Type': 'application/json'

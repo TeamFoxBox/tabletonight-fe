@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Grid, Col, Row, FormControl, Form } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import '../css/reservation.css'
-import { bookReservation } from '../api/'
+import { bookReservation } from '../api/index'
 import TimePicker from 'react-bootstrap-time-picker';
 import AuthService from '../services/AuthService'
 import ReserveService from '../services/ReserveService'
@@ -13,32 +13,41 @@ class Reservation extends Component {
     super(props)
     this.Reserve = new ReserveService()
     this.state = {
-      reservation: {
+      booking: {
         date: "",
-        time_start: 0,
-        // party_number: 0,
+        time: 0,
+        party_size: 0,
+        table: ""
       },
       reserveSuccess: false,
     }
   }
+
   handleChange(event){
-    let { reservation } = this.state
-    reservation[event.target.name] = event.target.value
-    this.setState({reservation: reservation})
+    console.log('name', event.target.name);
+    console.log('value', event.target.value);
+    let { booking } = this.state
+    booking[event.target.name] = event.target.value
+    this.setState({booking: booking})
     console.log(this.state)
   }
+
   handleSubmit(event){
     event.preventDefault()
-    bookReservation(this.state.reservation).then (successReserve => {
-    console.log("Create Success!", successReserve); this.setState({reserveSuccess: true})
+    bookReservation(this.state.booking).then (successReserve => {
+    console.log("Reserve Success!", successReserve); this.setState({reserveSuccess: true})
 
-      // this.Reserve.reserve(this.state.reservation).then (successReserve => {
+      // this.Reserve.reserve(this.state.booking).then (successReserve => {
       // console.log("Create Success!", successReserve); this.setState({reserveSuccess: true})
     })
     .catch(err =>{ alert(err) })
   }
+
   handleTimeChange(appt){
-      this.setState({time_start: appt})
+      console.log(appt)
+      let { booking } = this.state
+      booking['time'] = appt
+      this.setState({booking: booking})
   }
 
   render(){
@@ -52,20 +61,39 @@ class Reservation extends Component {
                   <Form>
                     <Col className="new-user">
                       <FormControl
+                        name="date"
                         type= "date"
                         placeholder="Date"
                         onChange={this.handleChange.bind(this)}
                       /><br/>
                       <TimePicker
                         type="select"
-                        start="11:00" end="20:00" step={30}
-                        onChange={this.handleTimeChange.bind(this)} value={this.state.time_start}
+                        time="11:00" step={30}
+                        onChange={this.handleTimeChange.bind(this)} value={this.state.time}
                       /><br/>
                       <FormControl
+                        name="party_size"
                         type="Number"
-                        placeholder="Party Number"
+                        placeholder="Party Size"
                         onChange={this.handleChange.bind(this)}
                     /><br/>
+                        <form className="box-8">
+                            <div class="form-group">
+                                <label for="exampleSelect1">Choose Your Table</label>
+                                <select class="form-control"
+                                    name="table"
+                                    id="exampleSelect1"
+                                    value={this.state.table}
+                                      onChange={this.handleChange.bind(this)}
+                                      >
+                                  <option>Table 1</option>
+                                  <option>Table 2</option>
+                                  <option>Table 3</option>
+                                  <option>Table 4</option>
+                                  <option>Table 5</option>
+                                </select>
+                            </div>
+                         </form>
                       <FormControl
                         type="submit"
                         name="submit"
@@ -73,12 +101,18 @@ class Reservation extends Component {
                       />
                     </Col>
                   </Form>
-                  {this.state.reserveSuccess && <Redirect to="/table"/> }
+                  {this.state.reserveSuccess && <Redirect to="/confirmation"/> }
                 </Row>
               </Grid>
             </div>
-            <div className="res_info">
-                <img id="waiter_pic" src="/assets/images/reserve.jpg" />
+
+            <div className="container-4">
+               <div className="box-7">
+                   <div className="table-image">
+                       <img src="/assets/images/tablechart2.png"/>
+                   </div>
+               </div>
+
             </div>
         </div>
 
