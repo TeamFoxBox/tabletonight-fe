@@ -14,6 +14,7 @@ class Reservation extends Component {
     this.Auth = new AuthService()
     this.Reserve = new ReserveService()
     this.state = {
+
       booking: {
         user_id: this.Auth.getUserId(),
         date: "",

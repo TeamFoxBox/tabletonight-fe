@@ -34,7 +34,7 @@ class Contactus extends Component {
             <a href="mailto:help@tabletonight.com">
               <h4>help@tabletonight.com</h4>
             </a>
-            
+
             <form onSubmit={this.handleSubmit}>
               <div class="form-group">
                 <label class="email" for="inputDefault">Email Address</label>

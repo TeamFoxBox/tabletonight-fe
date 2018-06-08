@@ -17,30 +17,65 @@ import Header from './pages/header'
 const Auth = new AuthService()
 
 class App extends Component {
+
   constructor(props) {
     super(props)
 
     this.state = {
       user: null,
+      search: [],
+      spots: [],
+      rest: [],
+
     }
   }
 
-
+  componentDidMount() {
+    fetch("https://table-tonight-be.herokuapp.com/")
+      .then((res) => res.json())
+      .then((json) => {
+      })
+  }
 
   handleNewUser(user) {
     console.log(user)
   }
+
+//API Search Bar
+  handleSearch = (searchTerm) => {
+    const token = localStorage.getItem("jwtToken")
+    const body = JSON.stringify(searchTerm)
+    return fetch("https://table-tonight-be.herokuapp.com/", {
+        method: "POST",
+        headers: {
+        'Accept': 'application/json',
+  'Content-Type': 'application/json',
+  'Authorization': `${token}`
+       },
+       'body': body
+   })
+    .then(res => res.json())
+    .then(res => res = res.businesses.slice(0,8))
+    .then(res => this.setState({
+      search: res
+    }))
+  }
+
+
+
+
 
 
 
   render() {
     return (
       <div className="App">
+
          
             <Header />
 
 					<Switch>
-            			<Route exact path="/login" component={Login} />
+            			      <Route exact path="/login" component={Login} />
                         <Route exact path="/" component={Welcome} />
                         <Route exact path="/about" component={About} />
                         <Route exact path="/register" component={Register}/>

@@ -9,46 +9,32 @@ export default class Table extends Component {
       super(props)
       this.TableService = new TableService()
       this.state = {
-          tables:[
-            { name: "Table 1",
-              booked : false
-            },
-            { name: "Table 2",
-              booked : false
-            },
-            { name: "Table 3",
-              booked : false
-            },
-            { name: "Table 4",
-              booked : false
-            },
-            { name: "Table 5",
-              booked : false
-            }
-        ]
+          table:""
+
         // createSuccess: false,
         }
     }
 
-
+    //
     handleChange(event){
-      let { table } = this.state
-      table[event.target.name] = event.target.value
-      this.setState({booked: true})
+      let table = event.target.value
+      this.setState({table:table})
       console.log(this.state)
     }
 
     handleSubmit(event){
       event.preventDefault()
-        this.TableService.setTable(this.state.tables).then (successUser => {
-        console.log("Create Success!", successUser); this.setState({createSuccess: true})
-      })
+      console.log(this.state)
+        this.TableService.setTable(this.state.table)
+        // .then (successUser => {
+        // console.log("Create Success!", successUser); this.setState({createSuccess: true})
+      // })
       .catch(err =>{ alert(err) })
     }
 
 
     render() {
-        let tables = this.state.tables
+
         return(
 
             <div className="container-4">
@@ -57,27 +43,31 @@ export default class Table extends Component {
                         <img src="/assets/images/tablechart2.png"/>
                     </div>
                 </div>
-                <div className="box-8">
+                <form className="box-8">
 
                     <div class="form-group">
                         <label for="exampleSelect1">Choose Your Table</label>
                         <select class="form-control"
-                            id="exampleSelect1"    onChange={this.handleChange.bind(this)}>
-                            {tables.map(table =>
-                            <option>
-                            {table.name}
-                            </option>)}
+                            id="exampleSelect1" value={this.state.table}
+                              onChange={this.handleChange.bind(this)}
+                              >
+                              <option>Table 1</option>
+                              <option>Table 2</option>
+                              <option>Table 3</option>
+                              <option>Table 4</option>
+                              <option>Table 5</option>
+
                         </select>
 
                     </div>
 
-                    <button type="submit" class="btn btn-success"
+                    <button type="submit"  class="btn btn-success"
                         onClick={this.handleSubmit.bind(this)} >
                         Book Table
                     </button>
 
 
-                </div>
+                </form>
             </div>
             )
         }

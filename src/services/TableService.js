@@ -5,7 +5,7 @@ export default class TableService extends AuthService {
     setTable(table) {
         // Our backend endpoint
         console.log(table);
-        return this.fetch(`${this.domain}/tables`, {
+        return this.fetch(`${this.domain}/bookings`, {
             method: 'POST',
             body: JSON.stringify({
             // We pass in email and password from the login form
