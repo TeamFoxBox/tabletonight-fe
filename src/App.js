@@ -30,36 +30,37 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch("https://table-tonight-be.herokuapp.com/")
-      .then((res) => res.json())
-      .then((json) => {
-      })
-  }
+  // componentDidMount() {
+  //   //fetch("https://table-tonight-be.herokuapp.com/")
+  //   fetch("https://localhost:3000/")
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //     })
+  // }
 
   handleNewUser(user) {
     console.log(user)
   }
 
 //API Search Bar
-  handleSearch = (searchTerm) => {
-    const token = localStorage.getItem("jwtToken")
-    const body = JSON.stringify(searchTerm)
-    return fetch("https://table-tonight-be.herokuapp.com/", {
-        method: "POST",
-        headers: {
-        'Accept': 'application/json',
-  'Content-Type': 'application/json',
-  'Authorization': `${token}`
-       },
-       'body': body
-   })
-    .then(res => res.json())
-    .then(res => res = res.businesses.slice(0,8))
-    .then(res => this.setState({
-      search: res
-    }))
-  }
+  // handleSearch = (searchTerm) => {
+  //   const token = localStorage.getItem("jwtToken")
+  //   const body = JSON.stringify(searchTerm)
+  //   return fetch("https://table-tonight-be.herokuapp.com/", {
+  //       method: "POST",
+  //       headers: {
+  //       'Accept': 'application/json',
+  // 'Content-Type': 'application/json',
+  // 'Authorization': `${token}`
+  //      },
+  //      'body': body
+  //  })
+  //   .then(res => res.json())
+  //   .then(res => res = res.businesses.slice(0,8))
+  //   .then(res => this.setState({
+  //     search: res
+  //   }))
+  // }
 
 
 
@@ -71,7 +72,7 @@ class App extends Component {
     return (
       <div className="App">
 
-         
+
             <Header />
 
 					<Switch>
