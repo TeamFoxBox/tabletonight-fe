@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Grid, Col, Row, FormControl, Form } from 'react-bootstrap'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Route } from 'react-router-dom'
 import '../css/reservation.css'
 import { bookReservation } from '../api/index'
 import TimePicker from 'react-bootstrap-time-picker';
@@ -96,7 +96,9 @@ class Reservation extends Component {
                                   <option>Table 5</option>
                                 </select>
                             </div>
+                            {/* <Confirmation rsvp={this.state.booking} /> */}
                          </form>
+                         {/* <Confirmation rsvp={this.state.booking}/>  */}
                       <FormControl
                         type="submit"
                         name="submit"
@@ -104,8 +106,8 @@ class Reservation extends Component {
                       />
                     </Col>
                   </Form>
-                    <Confirmation info={this.state.booking} />
-                    {this.state.reserveSuccess && <Redirect to="/confirmation"/> }
+
+                    {this.state.reserveSuccess &&  <Redirect to="/confirmation"/>}
 
 
 
