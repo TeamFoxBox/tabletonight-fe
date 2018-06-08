@@ -11,9 +11,11 @@ import ReserveService from '../services/ReserveService'
 class Reservation extends Component {
   constructor(props) {
     super(props)
+    this.Auth = new AuthService()
     this.Reserve = new ReserveService()
     this.state = {
       booking: {
+        user_id: this.Auth.getUserId(),
         date: "",
         time: 0,
         party_size: 0,
