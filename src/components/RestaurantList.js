@@ -1,4 +1,4 @@
-
+//New Home Page or Save Search page
 import React from 'react'
 import Spot from './Spot'
 import { Link } from 'react-router-dom'
@@ -24,7 +24,7 @@ class RestaurantsList extends React.Component {
 				<h1>Top Restaurants</h1>
       <br/>
 
-            <div classname="card">
+            <div className="card">
     				<h3 className='add-new-spot'><Link to='/spots/new'><span id="add-new-spot">Search Restaurants</span></Link></h3>
           </div>
 
