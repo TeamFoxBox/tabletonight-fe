@@ -12,7 +12,7 @@ class Reservation extends Component {
     this.Auth = new AuthService()
     this.state = {
       user: {
-        user_id: getUserId(), 
+    
         date: "",
         time: 0,
         party_number: 0,
