@@ -62,12 +62,12 @@ class Spot extends React.Component {
 			        <strong>{this.props.title}:</strong> {this.props.body}
 			      </div>
 			    </div>
-			  </div>
+			  {/* </div>
 			  	  <footer className="card-footer">
 			      	<a className="card-footer-item" onClick={this.props.handleDelete} data-id={this.props.id} id={this.props.id}>Delete Spot</a>
 			      	<a data-name="flip" className="card-footer-item" onClick={this.handleFlip} data-id={this.props.id} id={this.props.id}>Show Details</a>
 			      </footer>
-			  </div>
+			  </div> */}
 			</div>
 
 	)
