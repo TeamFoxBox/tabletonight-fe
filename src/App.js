@@ -11,6 +11,8 @@ import Table from './pages/table'
 import withAuth from './pages/withAuth'
 import AuthService from './services/AuthService'  // <- We use the AuthService to logout
 
+import Newhome from "./pages/newhome" //sample new home w/API
+
 
 
 import About from './pages/about'
@@ -44,6 +46,7 @@ class App extends Component {
             <Route exact path="/confirmation" component={Confirmation}/>
             <Route exact path="/reservation" component={Reservation}/>
             <Route exact path="/table" component={Table}/>
+            <Route exact path="/newhome" component={Newhome}/>
 
 
 			  		</Switch>
