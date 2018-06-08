@@ -31,7 +31,8 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://table-tonight-be.herokuapp.com/")
+    //fetch("https://table-tonight-be.herokuapp.com/")
+    fetch("https://localhost:3000/")
       .then((res) => res.json())
       .then((json) => {
       })
@@ -71,7 +72,7 @@ class App extends Component {
     return (
       <div className="App">
 
-         
+
             <Header />
 
 					<Switch>

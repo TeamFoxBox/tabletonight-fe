@@ -6,7 +6,7 @@ import { bookReservation } from '../api/index'
 import TimePicker from 'react-bootstrap-time-picker';
 import AuthService from '../services/AuthService'
 import ReserveService from '../services/ReserveService'
-
+import Confirmation from './confirmation'
 
 class Reservation extends Component {
   constructor(props) {
@@ -104,7 +104,11 @@ class Reservation extends Component {
                       />
                     </Col>
                   </Form>
-                  {this.state.reserveSuccess && <Redirect to="/confirmation"/> }
+                    <Confirmation info={this.state.booking} />
+                    {this.state.reserveSuccess && <Redirect to="/confirmation"/> }
+
+
+
                 </Row>
               </Grid>
             </div>
