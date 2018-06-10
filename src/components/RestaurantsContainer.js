@@ -64,8 +64,7 @@ export default class RestaurantsContainer extends React.Component {
     //const token = localStorage.getItem("jwtToken")
     const body = JSON.stringify(spotObject)
 
-//https://table-tonight-be.herokuapp.com/spots
-    return fetch("https://localhost:3001/spots/new", {
+    return fetch("https://table-tonight-be.herokuapp.com/spots", {
       'method': 'post',
       'headers': {
         'Accept': 'application/json',
