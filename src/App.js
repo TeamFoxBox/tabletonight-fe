@@ -10,22 +10,11 @@ import Reservation from './pages/reservation'
 import Table from './pages/table'
 import withAuth from './pages/withAuth'
 import AuthService from './services/AuthService'  // <- We use the AuthService to logout
-
-
-
-//OLD API
-//sample new home w/API
-// import RestaurantsContainer from './components/RestaurantsContainer'
-
-
 import About from './pages/about'
 import Contactus from './pages/contactus'
-import {get_next_course} from './api/yelpapi'
-
 import Header from './pages/header'
 
 const Auth = new AuthService()
-
 
 class App extends Component {
 
@@ -41,19 +30,6 @@ class App extends Component {
     }
   }
 
-
-  componentDidMount() {
-//http://localhost:3000
-    fetch("")
-//change inside of componet
-    console.log("inside of componet")
-    get_next_course()
-     .then(json => {
-        console.log(json)
-     })
-
-  }
-
   // componentDidMount() {
   //   //fetch("https://table-tonight-be.herokuapp.com/")
   //   fetch("https://localhost:3000/")
@@ -62,12 +38,9 @@ class App extends Component {
   //     })
   // }
 
-
   handleNewUser(user) {
     console.log(user)
   }
-
-
 
 //API Search Bar
   // handleSearch = (searchTerm) => {
