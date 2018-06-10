@@ -12,7 +12,6 @@ import withAuth from './pages/withAuth'
 import AuthService from './services/AuthService'  // <- We use the AuthService to logout
 import About from './pages/about'
 import Contactus from './pages/contactus'
-import Header from './pages/header'
 
 const Auth = new AuthService()
 
@@ -70,9 +69,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-         
-            <Header />
 
 					<Switch>
             			      <Route exact path="/login" component={Login} />

@@ -9,7 +9,7 @@ class Welcome extends Component {
         <div className="container-1">
           <div className="box-0">
             <h2>WELCOME TO TABLE TONIGHT!</h2>
-            <p>Whats better than making dinner reservations? Making reservations AND being able to choose your seating. That's right! Here at Table Tonight, you can choose to dine wherever* your heart desires at your restaurant of choice. Select from our participating venues below and start booking today.</p>
+            <p>Whats better than making dinner reservations? Making reservations AND being able to choose your seating. Thats right! Here at Table Tonight, you can choose to dine wherever* your heart desires at your restaurant of choice. Select from our participating venues below and start booking today.</p>
           </div>
         </div>
         <div className="container-2">

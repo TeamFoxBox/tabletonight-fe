@@ -13,3 +13,28 @@
   padding-top: 20px;
   justify-content: space-around;
 }
+
+
+
+
+
+
+.container-10 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+.container-11, .container-12 {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-around;
+}
+.box-10 {
+  height: 100px;
+  width: 70%;
+}
+.box-11, .box-12 {
+  height: 480px;
+  width: 402px;
+  border: 1px solid;
+}
