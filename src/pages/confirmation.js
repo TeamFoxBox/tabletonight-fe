@@ -24,36 +24,55 @@ class Confirmation extends Component {
 			  booking: {
 				user_id: "",
 				date: "",
-				time: 0,
+				time: "",
 				party_size: 0,
 				table: ""
-			  }
+			}
 		  }
 	  }
 
-	  componentWillMount() {
-  		let userID = Auth.getUserId()
-		  		return fetch(BASE + '/bookings/' + userID)
-			.then((resp) => {
-				console.log("HELLO")
-			  return resp.json()
-			})
-			.then(APIbooking => {
-				console.log(APIbooking);
-				this.setState({booking: APIbooking})
-			})
-		}
+	changeTimeFormat(preAPIbooking){
+  		  let bookingObj = preAPIbooking
+  		  let {time} = preAPIbooking
+  		  let timeObj = new Date(time)
+  		  let hr = timeObj.getUTCHours()
+  		  let min = timeObj.getMinutes()
+  		  let period = (hr > 11)? "PM" : "AM"
+  		  if (hr > 12){ hr -= 12 }
+  		  bookingObj.time = `${hr}:${min} ${period}`
+  		  return bookingObj
+  	  }
+
+	componentWillMount() {
+		let userID = Auth.getUserId()
+	  		return fetch(BASE + '/bookings/' + userID)
+		.then((resp) => {
+			//console.log("HELLO")
+			return resp.json()
+		})
+		.then( preAPIbooking => {
+			return this.changeTimeFormat(preAPIbooking)
+		})
+		.then(APIbooking => {
+			console.log(APIbooking);
+			this.setState({booking: APIbooking})
+		})
+	}
+
+
 
 
 	render() {
 		let {date, time, party_size, table} = this.state.booking
 
+
 		return (
 			<div>
 				<h2>YOUR TABLE IS CONFIRMED!!!!</h2>
 				<h4>Date: {date}</h4>
+				<h4>Time: {time}</h4>
 				<h4>Party Size: {party_size}</h4>
-				<h4>table: {table}</h4>
+				<h4>Table: {table}</h4>
 
 			</div>
 		);
