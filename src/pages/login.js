@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../css/login.css';
 import AuthService from '../services/AuthService';
+import { Grid, Col, Row, FormControl, Form } from 'react-bootstrap'
+
 
 class Login extends Component {
   constructor(){
@@ -27,34 +29,40 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="center">
-        <div className="card">
-          <h1>Login</h1>
-          <form
-            onSubmit={this.handleFormSubmit.bind(this)}
-          >
-            <input
-              className="form-item"
-              placeholder="email"
-              name="email"
-              type="text"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.email}
-            />
-            <input
-              className="form-item"
-              placeholder="password"
-              name="password"
-              type="password"
-              onChange={this.handleChange.bind(this)}
-              value={this.state.password}
-            />
-            <input
-              className="form-submit"
-              value="SUBMIT"
-              type="submit"
-            />
-          </form>
+      <div className="background-image2">
+        <div className="center2">
+          <h2><div className="loghead">LOG IN</div></h2>
+          <Grid>
+            <Row>
+              <Form onSubmit={this.handleFormSubmit.bind(this)}>
+                <Col className="new-user">
+                  <FormControl
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.email}
+                  />
+                  <FormControl
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    onChange={this.handleChange.bind(this)}
+                    value={this.state.password}
+                  /><br/>
+                  <FormControl
+                    type="submit"
+                    name="submit"
+                    value="submit"
+
+                  />
+                </Col>
+              </Form>
+            </Row>
+          </Grid><br/>
+          <div className="logtext">
+            Don't have an account yet? Register <a href="/register">here</a>.
+          </div>
         </div>
       </div>
     );

@@ -2,11 +2,13 @@
   display: flex;
   justify-content: center;
   padding-bottom: 50px;
+  padding-top: 50px;
 }
 .container-2, .container-3 {
   display: flex;
   padding-top: 20px;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 .box-0 {
   height: 100px;
@@ -20,4 +22,10 @@
 .card-image img {
   width: 400px;
   height: 250px;
+}
+
+
+
+.description {
+
 }

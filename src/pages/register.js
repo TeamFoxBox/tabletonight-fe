@@ -34,6 +34,7 @@ class Register extends Component {
 
   render(){
     return(
+      <div className="background-image">
       <div className="center1">
         <h2>REGISTER</h2>
         To start making reservations, please register below.<br/>
@@ -75,11 +76,13 @@ class Register extends Component {
             {this.state.createSuccess && <Redirect to="/"/> }
           </Row>
         </Grid>
-        Already have an account? Log in <a href="/login">here</a>.
+        <br/>
+        <div className="regtext">
+          Already have an account? Log in <a href="/login">here</a>.
+        </div>
       </div>
+    </div>
     )
   }
-
-
 }
 export default Register

@@ -11,6 +11,8 @@ import {
 } from 'react-bootstrap'
 import Reservation from './reservation'
 import AuthService from '../services/AuthService'
+import Welcome from './welcome'
+import { withRouter } from 'react-router-dom'
 
 
 const Auth = new AuthService()
@@ -63,23 +65,32 @@ class Confirmation extends Component {
 
 
 	render() {
+		console.log(this.props.history.location.state)
+		let restaurantName = this.props.history.location.state
+		let noSpaces = restaurantName.split(" ").join("+")
+		let url = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyBv9dAVbj3Dwf28NZIHt0KtUXIX-scGecs&q='+noSpaces
 		let {date, time, party_size, table} = this.state.booking
 
 
 		return (
 			<div>
-				<h2>YOUR TABLE IS CONFIRMED!!!!</h2>
+				<h2>YOUR TABLE IS CONFIRMED for {restaurantName}</h2>
 				<h4>Date: {date}</h4>
 				<h4>Time: {time}</h4>
 				<h4>Party Size: {party_size}</h4>
-				<h4>Table: {table}</h4>
-
+				<h4>table: {table}</h4>
+				<iframe
+					  width="600"
+					  height="450"
+					  frameborder="0" style={{border:0}}
+					  src={url} allowfullscreen>
+				</iframe>
 			</div>
 		);
 	}
 }
 
-export default Confirmation
+export default withRouter(Confirmation)
 
 //
 //
