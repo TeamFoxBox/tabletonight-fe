@@ -1,47 +1,24 @@
-.center{
-  background-color: FFF;
-  position: absolute;
-  height: 100%;
+.center2 {
+  height: 420px;
   width: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.card{
-  background-color: #fff;
-  border-radius: 15px;
-  padding: 0.8rem;
-}
-
-.card > form{
-  display: flex;
-  flex-direction: column;
-}
-
-.card h1{
   text-align: center;
-  color: black;
-  margin-top: 0;
-  margin-bottom: 10px;
+  opacity: 0.85;
+  color: #CCC;
+  padding-top: 10px;
 }
-
-.form-item{
-  padding: 5px;
-  margin-bottom: 2rem;
-  height: 30px;
-  width: 16rem;
-  border: 1px solid grey;
+.Grid {
+  text-align: center;
 }
-
-.form-submit{
-  height: 35px;
-  color: #fff;
-  background-color: darkblue;
-  border: none;
-  transition: 0.3s opacity ease;
-  cursor: pointer;
+.background-image2 {
+  background-image: url("/assets/images/background2.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
 }
-.form-submit:hover{
-  opacity: 0.6;
+.loghead {
+  color: #FFF;
+}
+.logtext {
+  color: #000;
 }
