@@ -55,6 +55,7 @@ class Login extends Component {
               type="submit"
             />
           </form>
+                                                                                                                                                                                                                                                                      <p>Don't have an account?</p> <a href="/register">Register</a>
         </div>
       </div>
     );

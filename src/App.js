@@ -12,7 +12,7 @@ import withAuth from './pages/withAuth'
 import AuthService from './services/AuthService'  // <- We use the AuthService to logout
 import About from './pages/about'
 import Contactus from './pages/contactus'
-import Header from './pages/header'
+import Logreg from './pages/logreg'
 
 const Auth = new AuthService()
 
@@ -73,7 +73,7 @@ class App extends Component {
       <div className="App">
 
 
-            <Header />
+
 
 					<Switch>
             			      <Route exact path="/login" component={Login} />
@@ -84,6 +84,7 @@ class App extends Component {
                         <Route exact path="/confirmation" component={Confirmation}/>
                         <Route exact path="/reservation" component={Reservation}/>
                         <Route exact path="/table" component={Table}/>
+                        <Route exact path="/logreg" component={Logreg}/>
 			  		</Switch>
 
       </div>
