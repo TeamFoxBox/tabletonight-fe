@@ -19,7 +19,7 @@ class Reservation extends Component {
       booking: {
         user_id: this.Auth.getUserId(),
         date: "",
-        time: 0,
+        time: "" ,
         party_size: 0,
         table: ""
       },
@@ -36,22 +36,43 @@ class Reservation extends Component {
     console.log(this.state)
   }
 
+  // changeTimeFormat(){
+  //     let sec = this.state.booking.time
+  //     let min = (sec%3600)/60
+  //     let hr = Math.floor(sec/3600)
+  //     let timeString = `${hr}:${min}:00`
+  //     this.setState(this.booking.time = timeString)
+  // }
+
   handleSubmit(event){
     event.preventDefault()
+//    changeTimeFormat()
     bookReservation(this.state.booking).then (successReserve => {
     console.log("Reserve Success!", successReserve); this.setState({reserveSuccess: true})
-
       // this.Reserve.reserve(this.state.booking).then (successReserve => {
       // console.log("Create Success!", successReserve); this.setState({reserveSuccess: true})
     })
     .catch(err =>{ alert(err) })
   }
 
-  handleTimeChange(appt){
-      console.log(appt)
+
+  // handleTimeChange(appt){
+  //     let { booking } = this.state
+  //     booking['time'] = appt
+  //     // this.setState({booking: booking})
+  //     this.setState({time: appt})
+  //     console.log(this.state.booking)
+  // }
+
+  handleTimeChange(sec){
+      let min = (sec%3600)/60
+      let hr = Math.floor(sec/3600)
+      let timeString = `${hr}:${min}`
       let { booking } = this.state
-      booking['time'] = appt
-      this.setState({booking: booking})
+      booking['time'] = timeString
+      // this.setState({booking: booking})
+      this.setState({time: timeString})
+      console.log(this.state.booking)
   }
 
   render(){
@@ -72,10 +93,29 @@ class Reservation extends Component {
                         onChange={this.handleChange.bind(this)}
                       /><br/>
                       <TimePicker
+                        name="time"
                         type="select"
-                        time="11:00" step={30}
+                        start="11:00"
+                        end="20:00"
+                        step={30}
                         onChange={this.handleTimeChange.bind(this)} value={this.state.time}
                       /><br/>
+
+                      {/* <select
+                          name="time"
+                          type="type"
+                          onChange={this.handleTimeChange.bind(this)} value={this.state.time}
+                          >
+                          <option>"05:00"</option>
+                          <option>"05:30"</option>
+                          <option>"06:00"</option>
+                          <option>"06:30"</option>
+                          <option>"07:00"</option>
+                          <option>"07:30"</option>
+                          <option>"08:00"</option>
+                          <option>"08:30"</option>
+                      </select><br/> */}
+
                       <FormControl
                         name="party_size"
                         type="Number"
