@@ -30,12 +30,11 @@ class Header extends Component {
               </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/reservation">Make a Reservation</a>
-                  </li>
+
+				<li class="nav-item">
+			      <a class="nav-link" href="/login">LOGIN</a>
+			    </li>
+
                   <li class="nav-item">
                     <a class="nav-link" href="/register">Register</a>
                   </li>
@@ -45,9 +44,7 @@ class Header extends Component {
                   <li class="nav-item">
                     <a class="nav-link" href="/contactus">Contact Us</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/login">LOGIN</a>
-                  </li>
+
 
                   {/* /* <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,12 +57,9 @@ class Header extends Component {
                     </div>
                   </li> --> */ }
                 </ul>
-                 <button type="button" className="form-submit" onClick={this.handleLogout.bind(this)}>Logout</button>
+                 <button type="button" class="btn btn-secondary"  onClick={this.handleLogout.bind(this)}>Logout</button>
 
-                <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="text" placeholder="Search"/>
-                  <button class="btn btn-secondary my-2 my-sm-0" type="submit"></button>
-                </form>
+
               </div>
             </nav>
         )

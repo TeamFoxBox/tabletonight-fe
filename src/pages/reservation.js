@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Grid, Col, Row, FormControl, Form } from 'react-bootstrap'
-import { Redirect, Route } from 'react-router-dom'
+import { Redirect, Route, withRouter } from 'react-router-dom'
 import '../css/reservation.css'
 import { bookReservation } from '../api/index'
 import TimePicker from 'react-bootstrap-time-picker';
 import AuthService from '../services/AuthService'
 import ReserveService from '../services/ReserveService'
 import Confirmation from './confirmation'
+import withAuth from './withAuth'
 
 class Reservation extends Component {
   constructor(props) {
@@ -54,11 +55,12 @@ class Reservation extends Component {
   }
 
   render(){
+    let restaurantName = this.props.history.location.state
     return(
         <div className="reg_page">
             <div className="res_form">
-              <h1>Reservation</h1>
-              Please Make a Reservation here.<br/>
+            
+              Please Make a Reservation for <h1>{restaurantName}</h1>.<br/>
               <Grid>
                 <Row>
                   <Form>
@@ -107,7 +109,7 @@ class Reservation extends Component {
                     </Col>
                   </Form>
 
-                    {this.state.reserveSuccess &&  <Redirect to="/confirmation"/>}
+                    {this.state.reserveSuccess &&  this.props.history.push('/confirmation', restaurantName) }
 
 
 
@@ -130,4 +132,4 @@ class Reservation extends Component {
 
 
 }
-export default Reservation
+export default withRouter(withAuth(Reservation))
