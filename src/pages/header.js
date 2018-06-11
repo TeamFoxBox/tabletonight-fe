@@ -17,7 +17,7 @@ class Header extends Component {
 
     handleLogout() { // <- Remove local storage, and redirect the user
         Auth.logout()
-        this.props.history.push('/');
+        this.props.history.push('/login');
       }
 
     render() {

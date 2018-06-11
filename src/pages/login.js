@@ -34,7 +34,7 @@ class Login extends Component {
           <h2><div className="loghead">LOG IN</div></h2>
           <Grid>
             <Row>
-              <Form>
+              <Form onSubmit={this.handleFormSubmit.bind(this)}>
                 <Col className="new-user">
                   <FormControl
                     type="text"
@@ -53,7 +53,8 @@ class Login extends Component {
                   <FormControl
                     type="submit"
                     name="submit"
-                    onSubmit={this.handleFormSubmit.bind(this)}
+                    value="submit"
+
                   />
                 </Col>
               </Form>
