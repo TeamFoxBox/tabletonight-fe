@@ -4,9 +4,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+
   opacity: 0.85;
   color: #CCC;
   padding-top: 10px;
+
 }
 .Grid {
   text-align: center;

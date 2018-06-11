@@ -76,13 +76,13 @@ class App extends Component {
             <Header />
 
 					<Switch>
-            			      <Route exact path="/login" component={Login} />
                         <Route exact path="/" component={Welcome} />
+            			<Route exact path="/login" component={Login} />
                         <Route exact path="/about" component={About} />
                         <Route exact path="/register" component={Register}/>
                         <Route exact path="/contactus" component={Contactus}/>
-                        <Route exact path="/confirmation" component={Confirmation}/>
                         <Route exact path="/reservation" component={Reservation}/>
+                        <Route exact path="/confirmation" component={Confirmation}/>
                         <Route exact path="/table" component={Table}/>
 			  		</Switch>
 
