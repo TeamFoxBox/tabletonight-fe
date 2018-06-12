@@ -29,8 +29,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="background-image2">
-        <div className="center2">
+        <div className="center2 background-image2">
           <h2><div className="loghead">LOG IN</div></h2>
           <Grid>
             <Row>
@@ -64,7 +63,6 @@ class Login extends Component {
             Don't have an account yet? Register <a href="/register">here</a>.
           </div>
         </div>
-      </div>
     );
   }
 }
