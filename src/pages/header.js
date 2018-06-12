@@ -6,10 +6,12 @@ import {
 	ControlLabel,
 	FormGroup,
 	FormControl,
-	Row, Navbar, Nav, NavItem, NavDropdown, MenuItem, NavbarHeader
+	Row, Navbar, Nav, NavItem, NavDropdown, MenuItem, NavbarHeader, Toggle, Brand, Collapse
 } from 'react-bootstrap'
 import AuthService from '../services/AuthService'  // <- We use the AuthService to logout
 import { withRouter } from 'react-router-dom'
+import '../css/header.css'
+
 
 
 
@@ -22,40 +24,31 @@ class Header extends Component {
         this.props.history.push('/login');
       }
 
-    render() {
 
-        return(
-			<Navbar>
-  <Navbar.Header>
-    <Navbar.Brand>
-      <a href="/"><img src="/assets/images/logosmall.jpg"/></a>
-    </Navbar.Brand>
-	<Navbar.Toggle/>
-  </Navbar.Header>
-  <Navbar.Collapse>
-  <Nav>
-    <NavItem eventKey={1} href="/register">
-      Register
-    </NavItem>
-    <NavItem eventKey={2} href="/login">
-      Login
-    </NavItem>
-	<NavItem eventKey={3} href="/about">
-      About
-    </NavItem>
-	<NavItem eventKey={4} href="/contactus">
-      Contact Us
-    </NavItem>
-    {/* <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-      <MenuItem eventKey={3.1}>Action</MenuItem>
-      <MenuItem eventKey={3.2}>Another action</MenuItem>
-      <MenuItem eventKey={3.3}>Something else here</MenuItem>
-      <MenuItem divider />
-      <MenuItem eventKey={3.4}>Separated link</MenuItem>
-    </NavDropdown> */}
-  </Nav>
-</Navbar.Collapse>
-</Navbar>
+
+    render() {
+		return(
+			<header>
+				<div className="logo">
+					  <a href="/"><img src="/assets/images/logosmall.jpg"/></a>
+				</div>
+				<nav>
+					<ul>
+						{!Auth.loggedIn() &&
+						  <li className="item"><a href="/login">Login</a></li>
+					  }
+						 <li className="item"> <a href="/register">Register</a></li>
+						 <li className="item"><a href="/about">About</a></li>
+						  <li className="item"><a href="/contactus">Contact Us</a></li>
+						  {Auth.loggedIn() &&
+						  <li className="item"><a href="/logout">Logout</a></li>
+					  }
+					</ul>
+				</nav>
+			</header>
+
+
+
 
         )
     }
