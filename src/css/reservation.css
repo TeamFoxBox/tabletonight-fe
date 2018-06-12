@@ -5,24 +5,31 @@
   opacity: 30%;
   background-size: cover;
 }
-.container-20 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-bottom: 50px;
-    padding-top: 50px;
-    height: 600px;
-    width: 100%;
+.container-reserv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  height: 600px;
+  width: 100%;
+  background-image: url("https://slack-imgs.com/?c=1&url=https%3A%2F%2Fimage.freepik.com%2Ffree-photo%2Fwooden-board-empty-table-top-on-of-blurred-background_1253-1584.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 30%;
+  background-size: cover;
 }
 .box-20 {
-    width: 500px;
-    padding-bottom: 50px;
+  min-width: 20%;
+  max-width: 300px;
+  padding-right: 30px;
+  padding-bottom: 50px;
 }
 .box-21 {
-    width: 500px;
+  max-width: 400px;
 }
 .reservtext {
-    color: black;
+  color: black;
 }
 
 
