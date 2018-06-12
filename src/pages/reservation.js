@@ -19,7 +19,7 @@ class Reservation extends Component {
       booking: {
         user_id: this.Auth.getUserId(),
         date: "",
-        time: 0,
+        time: "" ,
         party_size: 0,
         table: ""
       },
@@ -36,100 +36,102 @@ class Reservation extends Component {
     console.log(this.state)
   }
 
+  // changeTimeFormat(){
+  //     let sec = this.state.booking.time
+  //     let min = (sec%3600)/60
+  //     let hr = Math.floor(sec/3600)
+  //     let timeString = `${hr}:${min}:00`
+  //     this.setState(this.booking.time = timeString)
+  // }
+
   handleSubmit(event){
     event.preventDefault()
+//    changeTimeFormat()
     bookReservation(this.state.booking).then (successReserve => {
     console.log("Reserve Success!", successReserve); this.setState({reserveSuccess: true})
-
       // this.Reserve.reserve(this.state.booking).then (successReserve => {
       // console.log("Create Success!", successReserve); this.setState({reserveSuccess: true})
     })
     .catch(err =>{ alert(err) })
   }
 
-  handleTimeChange(appt){
-      console.log(appt)
+
+  // handleTimeChange(appt){
+  //     let { booking } = this.state
+  //     booking['time'] = appt
+  //     // this.setState({booking: booking})
+  //     this.setState({time: appt})
+  //     console.log(this.state.booking)
+  // }
+
+  handleTimeChange(sec){
+      let min = (sec%3600)/60
+      let hr = Math.floor(sec/3600)
+      let timeString = `${hr}:${min}`
       let { booking } = this.state
-      booking['time'] = appt
-      this.setState({booking: booking})
+      booking['time'] = timeString
+      // this.setState({booking: booking})
+      this.setState({time: timeString})
+      console.log(this.state.booking)
   }
 
   render(){
     let restaurantName = this.props.history.location.state
     return(
-        <div className="reg_page">
-            <div className="res_form">
-            
-              Please Make a Reservation for <h1>{restaurantName}</h1>.<br/>
-              <Grid>
-                <Row>
-                  <Form>
-                    <Col className="new-user">
-                      <FormControl
-                        name="date"
-                        type= "date"
-                        placeholder="Date"
-                        onChange={this.handleChange.bind(this)}
-                      /><br/>
-                      <TimePicker
-                        type="select"
-                        time="11:00" step={30}
-                        onChange={this.handleTimeChange.bind(this)} value={this.state.time}
-                      /><br/>
-                      <FormControl
-                        name="party_size"
-                        type="Number"
-                        placeholder="Party Size"
-                        onChange={this.handleChange.bind(this)}
-                    /><br/>
-                        <form className="box-8">
-                            <div class="form-group">
-                                <label for="exampleSelect1">Choose Your Table</label>
-                                <select class="form-control"
-                                    name="table"
-                                    id="exampleSelect1"
-                                    value={this.state.table}
-                                      onChange={this.handleChange.bind(this)}
-                                      >
-                                  <option>Table 1</option>
-                                  <option>Table 2</option>
-                                  <option>Table 3</option>
-                                  <option>Table 4</option>
-                                  <option>Table 5</option>
-                                </select>
-                            </div>
-                            {/* <Confirmation rsvp={this.state.booking} /> */}
-                         </form>
-                         {/* <Confirmation rsvp={this.state.booking}/>  */}
-                      <FormControl
-                        type="submit"
-                        name="submit"
-                        onClick={this.handleSubmit.bind(this)}
-                      />
-                    </Col>
-                  </Form>
 
+        <div className="container-20 background-image3 reservtext">
+            <div className="box-20">
+              <strong>Please Make a Reservation for </strong><h1>{restaurantName}</h1>.<br/>
+                <Grid>
+                    <Row>
+                        <Form>
+                            <Col className="new-user">
+                                <FormControl name="date" type= "date" placeholder="Date"
+                                onChange={this.handleChange.bind(this)}
+                                /><br/>
+                                <TimePicker
+                                name="time" type="select" start="11:00" end="20:00" step={30}
+                                onChange={this.handleTimeChange.bind(this)} value={this.state.time}
+                                /><br/>
+                                <FormControl
+                                name="party_size" type="Number" placeholder="Party Size"
+                                onChange={this.handleChange.bind(this)}
+                                /><br/>
+                                    <div class="form-group">
+                                        <label for="exampleSelect1"><strong>Choose Your Table</strong></label>
+                                        <select class="form-control"
+                                        name="table"
+                                        id="exampleSelect1"
+                                        value={this.state.table}
+                                          onChange={this.handleChange.bind(this)}
+                                          >
+                                            <option>Table 1</option>
+                                            <option>Table 2</option>
+                                            <option>Table 3</option>
+                                            <option>Table 4</option>
+                                            <option>Table 5</option>
+                                        </select>
+                                    </div>
+                                <FormControl
+                                type="submit"
+                                name="submit"
+                                onClick={this.handleSubmit.bind(this)}
+                                />
+                            </Col>
+                        </Form>
                     {this.state.reserveSuccess &&  this.props.history.push('/confirmation', restaurantName) }
-
-
-
-                </Row>
-              </Grid>
+                    </Row>
+                </Grid>
             </div>
 
-            <div className="container-4">
-               <div className="box-7">
-                   <div className="table-image">
-                       <img src="/assets/images/tablechart2.png"/>
-                   </div>
-               </div>
-
+            <div className="box-21">
+                <div className="table-image">
+                    <img src="/assets/images/tablechart2.png"/>
+                </div>
             </div>
         </div>
-
     )
   }
-
-
 }
+
 export default withRouter(withAuth(Reservation))
