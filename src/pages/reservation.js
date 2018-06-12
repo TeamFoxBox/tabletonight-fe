@@ -78,98 +78,60 @@ class Reservation extends Component {
   render(){
     let restaurantName = this.props.history.location.state
     return(
-        <div className="reg_page">
-            <div className="res_form">
-            
-              Please Make a Reservation for <h1>{restaurantName}</h1>.<br/>
-              <Grid>
-                <Row>
-                  <Form>
-                    <Col className="new-user">
-                      <FormControl
-                        name="date"
-                        type= "date"
-                        placeholder="Date"
-                        onChange={this.handleChange.bind(this)}
-                      /><br/>
-                      <TimePicker
-                        name="time"
-                        type="select"
-                        start="11:00"
-                        end="20:00"
-                        step={30}
-                        onChange={this.handleTimeChange.bind(this)} value={this.state.time}
-                      /><br/>
 
-                      {/* <select
-                          name="time"
-                          type="type"
-                          onChange={this.handleTimeChange.bind(this)} value={this.state.time}
-                          >
-                          <option>"05:00"</option>
-                          <option>"05:30"</option>
-                          <option>"06:00"</option>
-                          <option>"06:30"</option>
-                          <option>"07:00"</option>
-                          <option>"07:30"</option>
-                          <option>"08:00"</option>
-                          <option>"08:30"</option>
-                      </select><br/> */}
-
-                      <FormControl
-                        name="party_size"
-                        type="Number"
-                        placeholder="Party Size"
-                        onChange={this.handleChange.bind(this)}
-                    /><br/>
-                        <form className="box-8">
-                            <div class="form-group">
-                                <label for="exampleSelect1">Choose Your Table</label>
-                                <select class="form-control"
-                                    name="table"
-                                    id="exampleSelect1"
-                                    value={this.state.table}
-                                      onChange={this.handleChange.bind(this)}
-                                      >
-                                  <option>Table 1</option>
-                                  <option>Table 2</option>
-                                  <option>Table 3</option>
-                                  <option>Table 4</option>
-                                  <option>Table 5</option>
-                                </select>
-                            </div>
-                            {/* <Confirmation rsvp={this.state.booking} /> */}
-                         </form>
-                         {/* <Confirmation rsvp={this.state.booking}/>  */}
-                      <FormControl
-                        type="submit"
-                        name="submit"
-                        onClick={this.handleSubmit.bind(this)}
-                      />
-                    </Col>
-                  </Form>
-
+        <div className="container-20 background-image3 reservtext">
+            <div className="box-20">
+              <strong>Please Make a Reservation for </strong><h1>{restaurantName}</h1>.<br/>
+                <Grid>
+                    <Row>
+                        <Form>
+                            <Col className="new-user">
+                                <FormControl name="date" type= "date" placeholder="Date"
+                                onChange={this.handleChange.bind(this)}
+                                /><br/>
+                                <TimePicker
+                                name="time" type="select" start="11:00" end="20:00" step={30}
+                                onChange={this.handleTimeChange.bind(this)} value={this.state.time}
+                                /><br/>
+                                <FormControl
+                                name="party_size" type="Number" placeholder="Party Size"
+                                onChange={this.handleChange.bind(this)}
+                                /><br/>
+                                    <div class="form-group">
+                                        <label for="exampleSelect1"><strong>Choose Your Table</strong></label>
+                                        <select class="form-control"
+                                        name="table"
+                                        id="exampleSelect1"
+                                        value={this.state.table}
+                                          onChange={this.handleChange.bind(this)}
+                                          >
+                                            <option>Table 1</option>
+                                            <option>Table 2</option>
+                                            <option>Table 3</option>
+                                            <option>Table 4</option>
+                                            <option>Table 5</option>
+                                        </select>
+                                    </div>
+                                <FormControl
+                                type="submit"
+                                name="submit"
+                                onClick={this.handleSubmit.bind(this)}
+                                />
+                            </Col>
+                        </Form>
                     {this.state.reserveSuccess &&  this.props.history.push('/confirmation', restaurantName) }
-
-
-
-                </Row>
-              </Grid>
+                    </Row>
+                </Grid>
             </div>
 
-            <div className="container-4">
-               <div className="box-7">
-                   <div className="table-image">
-                       <img src="/assets/images/tablechart2.png"/>
-                   </div>
-               </div>
-
+            <div className="box-21">
+                <div className="table-image">
+                    <img src="/assets/images/tablechart2.png"/>
+                </div>
             </div>
         </div>
-
     )
   }
-
-
 }
+
 export default withRouter(withAuth(Reservation))
