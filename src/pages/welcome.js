@@ -19,7 +19,7 @@ class Welcome extends Component {
       <main>
         <section className="container-1">
             <div className="box-0">
-                <h2>WELCOME TO TABLE TONIGHT!</h2>
+                <h1>WELCOME TO TABLE TONIGHT!</h1>
                 <p className="description">
                     Whats better than making dinner reservations? Making reservations AND being able to choose your seating. That's right! Here at Table Tonight, you can choose to dine wherever* your heart desires at your restaurant of choice. Select from our participating venues below and start booking today.
                 </p>
@@ -27,7 +27,7 @@ class Welcome extends Component {
         </section>
 
         <section className="container-2">
-            
+
             <article className="box-1">
                 <div className="card-image">
                     <img src="/assets/images/bornandraised.jpg"/>

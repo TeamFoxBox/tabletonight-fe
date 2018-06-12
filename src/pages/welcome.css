@@ -34,6 +34,11 @@ article p {
     flex: 2;
 }
 
+article button {
+    background-color: #990000;
+    color: white;
+}
+
 .card-image img {
   width: 380px;
   height: 250px;

@@ -37,11 +37,14 @@ class Header extends Component {
 						{!Auth.loggedIn() &&
 						  <li className="item"><a href="/login">Login</a></li>
 					  }
-						 <li className="item"> <a href="/register">Register</a></li>
+					  	{!Auth.loggedIn() &&
+						   <li className="item"> <a href="/register">Register</a></li>
+					  }
+
 						 <li className="item"><a href="/about">About</a></li>
 						  <li className="item"><a href="/contactus">Contact Us</a></li>
 						  {Auth.loggedIn() &&
-						  <li className="item"><a href="/logout">Logout</a></li>
+						  <li className="item"><a href="/" onClick={this.handleLogout.bind(this)}>Logout</a></li>
 					  }
 					</ul>
 				</nav>
