@@ -79,13 +79,10 @@ class Reservation extends Component {
     let restaurantName = this.props.history.location.state
     return(
 
-        <div className="container-20 background-image3 reservtext">
+        <div className="container-reserv">
             <div className="box-20">
-              <strong>Please Make a Reservation for </strong><h1>{restaurantName}</h1>.<br/>
-                <Grid>
-                    <Row>
-                        <Form>
-                            <Col className="new-user">
+              Please Make a Reservation for <h1>{restaurantName}</h1><br/>
+
                                 <FormControl name="date" type= "date" placeholder="Date"
                                 onChange={this.handleChange.bind(this)}
                                 /><br/>
@@ -94,11 +91,11 @@ class Reservation extends Component {
                                 onChange={this.handleTimeChange.bind(this)} value={this.state.time}
                                 /><br/>
                                 <FormControl
-                                name="party_size" type="Number" placeholder="Party Size"
+                                name="party_size" type="Number" placeholder="Party Size" min={1}
                                 onChange={this.handleChange.bind(this)}
                                 /><br/>
                                     <div class="form-group">
-                                        <label for="exampleSelect1"><strong>Choose Your Table</strong></label>
+                                        <label for="exampleSelect1">Choose Your Table</label>
                                         <select class="form-control"
                                         name="table"
                                         id="exampleSelect1"
@@ -117,11 +114,9 @@ class Reservation extends Component {
                                 name="submit"
                                 onClick={this.handleSubmit.bind(this)}
                                 />
-                            </Col>
-                        </Form>
+
                     {this.state.reserveSuccess &&  this.props.history.push('/confirmation', restaurantName) }
-                    </Row>
-                </Grid>
+
             </div>
 
             <div className="box-21">

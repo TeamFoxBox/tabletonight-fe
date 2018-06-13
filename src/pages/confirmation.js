@@ -39,6 +39,9 @@ class Confirmation extends Component {
   		  let timeObj = new Date(time)
   		  let hr = timeObj.getUTCHours()
   		  let min = timeObj.getMinutes()
+				if (min===0){
+					min = "00"
+				}
   		  let period = (hr > 11)? "PM" : "AM"
   		  if (hr > 12){ hr -= 12 }
   		  bookingObj.time = `${hr}:${min} ${period}`
@@ -73,12 +76,10 @@ class Confirmation extends Component {
 
 
 		return (
-			<div>
-				<h2>YOUR TABLE IS CONFIRMED for {restaurantName}</h2>
-				<h4>Date: {date}</h4>
-				<h4>Time: {time}</h4>
-				<h4>Party Size: {party_size}</h4>
-				<h4>table: {table}</h4>
+			<div className="container-confirm">
+				<div className="box-confirm">
+				<h2>Your table is confirmed for {restaurantName}</h2>
+				<h4>On {date} at {time} for your party of {party_size} at {table}</h4>
 				<iframe
 					  width="600"
 					  height="450"
@@ -86,6 +87,7 @@ class Confirmation extends Component {
 					  src={url} allowfullscreen>
 				</iframe>
 			</div>
+		</div>
 		);
 	}
 }
