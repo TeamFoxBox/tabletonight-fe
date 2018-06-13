@@ -81,7 +81,7 @@ class Reservation extends Component {
 
         <div className="container-reserv">
             <div className="box-20">
-              Please Make a Reservation for <h1>{restaurantName}</h1><br/>
+              <h1>Please Make a Reservation for {restaurantName}</h1> <br/>
 
                                 <FormControl name="date" type= "date" placeholder="Date"
                                 onChange={this.handleChange.bind(this)}
