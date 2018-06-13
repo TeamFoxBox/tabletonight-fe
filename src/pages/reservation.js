@@ -19,9 +19,9 @@ class Reservation extends Component {
       booking: {
         user_id: this.Auth.getUserId(),
         date: "",
-        time: "" ,
-        party_size: 0,
-        table: ""
+        time: "11:00" ,
+        party_size: 1,
+        table: "Table 1"
       },
       reserveSuccess: false,
     }
