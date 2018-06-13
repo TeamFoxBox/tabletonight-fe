@@ -73,12 +73,13 @@ class Register extends Component {
                 />
               </Col>
             </Form>
-            {this.state.createSuccess && <Redirect to="/"/> }
+            {this.state.createSuccess && <Redirect to="/login"/> }
           </Row>
         </Grid>
         <br/>
         <div className="regtext">
-          Already have an account? Log in <a href="/login">here</a>.
+          Already have an account? <br />
+          <a href="/login">Log in here</a>.
         </div>
       </div>
     </div>

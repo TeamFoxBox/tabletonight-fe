@@ -60,7 +60,7 @@ class Login extends Component {
             </Row>
           </Grid><br/>
           <div className="logtext">
-            Don't have an account yet? Register <a href="/register">here</a>.
+            Don't have an account yet? <br /> <a href="/register">Register here</a>.
           </div>
         </div>
     );
