@@ -21,7 +21,7 @@ class Welcome extends Component {
             <div className="box-0">
                 <h1>WELCOME TO TABLE TONIGHT!</h1>
                 <p className="description">
-                    Whats better than making dinner reservations? Making reservations AND being able to choose your seating. That's right! Here at Table Tonight, you can choose to dine wherever* your heart desires at your restaurant of choice. Select from our participating venues below and start booking today.
+                    What's better than making dinner reservations? Making reservations AND being able to choose your seating. That's right! Here at Table Tonight, you can choose to dine wherever your heart desires at your restaurant of choice. Select from our participating venues below and start booking today.
                 </p>
             </div>
         </section>

@@ -52,7 +52,7 @@ class Login extends Component {
                   <FormControl
                     type="submit"
                     name="submit"
-                    value="submit"
+                    value="Submit"
 
                   />
                 </Col>
