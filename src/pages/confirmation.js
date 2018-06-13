@@ -78,7 +78,7 @@ class Confirmation extends Component {
 		return (
 			<div className="container-confirm">
 				<div className="box-confirm">
-				<h2>Your table is confirmed for {restaurantName}</h2>
+				<h2 className="confirm">Your table is confirmed for {restaurantName}</h2>
 				<h4>On {date} at {time} for your party of {party_size} at {table}</h4>
 				<iframe
 					  width="600"

@@ -1,0 +1,15 @@
+.center{
+    background-image: url("/assets/images/contactus.jpeg");
+    background-size: cover;
+    height: 700px;
+    background-position: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    justify-content: space-around;
+
+}
+form {
+    max-width: 100%;
+    align-items: center;
+}
