@@ -34,13 +34,12 @@ class Header extends Component {
 				</div>
 				<nav>
 					<ul>
-						<li className="item"><a href="/">Home</a></li>
 						{!Auth.loggedIn() &&
 						  <li className="item"><a href="/login">Login</a></li>
-					    }
+					  }
 					  	{!Auth.loggedIn() &&
 						   <li className="item"> <a href="/register">Register</a></li>
-					    }
+					  }
 
 						 <li className="item"><a href="/about">About</a></li>
 						  <li className="item"><a href="/contactus">Contact Us</a></li>
