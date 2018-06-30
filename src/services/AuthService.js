@@ -4,7 +4,7 @@ export default class AuthService {
 	constructor(domain) {
 		// We can pass in the backend server, or use a default for dev
 		this.domain = domain ||
-		'https://table-tonight-be.herokuapp.com/'
+		'https://table-tonight-be.herokuapp.com'
 		this.fetch = this.fetch.bind(this)
 		this.login = this.login.bind(this)
 		this.getUserId = this.getUserId.bind(this)
