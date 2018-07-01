@@ -3,8 +3,7 @@ import decode from 'jwt-decode';
 export default class AuthService {
 	constructor(domain) {
 		// We can pass in the backend server, or use a default for dev
-		this.domain = domain ||
-		'https://table-tonight-be.herokuapp.com'
+		this.domain = domain || 'http://localhost:3000'
 		this.fetch = this.fetch.bind(this)
 		this.login = this.login.bind(this)
 		this.getUserId = this.getUserId.bind(this)
