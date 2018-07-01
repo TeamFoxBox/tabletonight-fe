@@ -4,7 +4,7 @@ export default class AuthService {
 	constructor(domain) {
 		// We can pass in the backend server, or use a default for dev
 		this.domain = domain ||
-		'https://table-tonight-be.herokuapp.com/'
+		'https://table-tonight-be.herokuapp.com'
 		this.fetch = this.fetch.bind(this)
 		this.login = this.login.bind(this)
 		this.getUserId = this.getUserId.bind(this)
@@ -15,7 +15,7 @@ export default class AuthService {
 		// Our backend endpoint
 		console.log(email);
 		console.log(password);
-		return this.fetch(`${this.domain}user_token`, {
+		return this.fetch(`${this.domain}/user_token`, {
 			method: 'POST',
 			body: JSON.stringify({
 			// We pass in email and password from the login form
@@ -35,7 +35,7 @@ export default class AuthService {
 	register(user) {
 		// Our backend endpoint
 		console.log(user);
-		return this.fetch(`${this.domain}users`, {
+		return this.fetch(`${this.domain}/users`, {
 			method: 'POST',
 			body: JSON.stringify({
 			// We pass in email and password from the login form
