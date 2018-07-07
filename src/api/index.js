@@ -1,5 +1,5 @@
-const BASE = 'https://table-tonight-be.herokuapp.com/'
-// const BASE = 'http://localhost:3000/'
+const BASE = 'https://table-tonight-be.herokuapp.com'
+
 let createUser = function(user) {
   let newUser = {user: user}
   return fetch(BASE+'users', {

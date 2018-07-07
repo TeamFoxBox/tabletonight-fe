@@ -30,13 +30,7 @@ class App extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   //fetch("https://table-tonight-be.herokuapp.com/")
-  //   fetch("https://localhost:3000/")
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //     })
-  // }
+  
 
   handleNewUser(user) {
     console.log(user)

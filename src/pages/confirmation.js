@@ -16,7 +16,7 @@ import { withRouter } from 'react-router-dom'
 
 
 const Auth = new AuthService()
-const BASE = 'http://localhost:3000'
+const BASE = 'https://table-tonight-be.herokuapp.com'
 
 
 class Confirmation extends Component {
@@ -37,7 +37,8 @@ class Confirmation extends Component {
   		  let bookingObj = preAPIbooking
   		  let {time} = preAPIbooking
   		  let timeObj = new Date(time)
-  		  let hr = timeObj.getUTCHours()
+  		  let hr = timeObj.getHours()
+
   		  let min = timeObj.getMinutes()
 				if (min===0){
 					min = "00"

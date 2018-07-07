@@ -94,7 +94,7 @@ export default class AuthService {
 	// Add authentication headers to every fetch request
 	fetch(url, options) {
 		const headers = {
-			'Accept': 'application/json',
+			'Accept': 'application/json', 'Access-Control-Allow-Origin'
 			'Content-Type': 'application/json'
 		}
 
