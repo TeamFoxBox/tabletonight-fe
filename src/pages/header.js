@@ -42,6 +42,7 @@ class Header extends Component {
 					  }
 
 						 <li className="item"><a href="/about">About</a></li>
+						 <li className="item"><a href="/reservation">Reservation</a></li>
 						  <li className="item"><a href="/contactus">Contact Us</a></li>
 						  {Auth.loggedIn() &&
 						  <li className="item"><a href="/" onClick={this.handleLogout.bind(this)}>Logout</a></li>
